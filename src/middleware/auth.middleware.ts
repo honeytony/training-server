@@ -1,4 +1,3 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { TOKEN } from 'src/constants/constants';
 
@@ -10,7 +9,6 @@ export function AuthMiddleware(
   const authorizationHeader = req.header('Authorization');
 
   if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {
-    // throw new HttpException('Unauthenticated.', HttpStatus.UNAUTHORIZED);
     res.send({
       error: {
         code: 401,

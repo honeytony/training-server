@@ -14,6 +14,6 @@ import { AuthMiddleware } from 'src/middleware/auth.middleware';
 })
 export class LogoutModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('*');
+    consumer.apply(AuthMiddleware).forRoutes(LogoutController);
   }
 }
