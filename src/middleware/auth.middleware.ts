@@ -10,7 +10,13 @@ export function AuthMiddleware(
   const authorizationHeader = req.header('Authorization');
 
   if (!authorizationHeader || !authorizationHeader.startsWith('Bearer ')) {
-    throw new HttpException('Unauthenticated.', HttpStatus.UNAUTHORIZED);
+    // throw new HttpException('Unauthenticated.', HttpStatus.UNAUTHORIZED);
+    res.send({
+      error: {
+        code: 401,
+        message: 'Unauthorized',
+      },
+    });
   }
 
   const token = authorizationHeader.split('Bearer ')[1];
@@ -18,6 +24,11 @@ export function AuthMiddleware(
   if (token && token === TOKEN) {
     next();
   } else {
-    throw new HttpException('Unauthenticated.', HttpStatus.UNAUTHORIZED);
+    res.send({
+      error: {
+        code: 401,
+        message: 'Unauthorized',
+      },
+    });
   }
 }
