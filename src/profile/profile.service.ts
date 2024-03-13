@@ -15,7 +15,13 @@ export class ProfileService {
         meets_leader: [
           {
             id: 1,
-            title: 'title',
+            title: 'Антон',
+            hash: 'xxxxx',
+            block: 0,
+          },
+          {
+            id: 2,
+            title: 'Даша',
             hash: 'xxxxx',
             block: 0,
           },

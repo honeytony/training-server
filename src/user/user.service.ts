@@ -5,6 +5,8 @@ import { TOKEN, EUser } from 'src/constants/constants';
 @Injectable()
 export class UserService {
   login(dto: LoginUserDto) {
+    console.log(dto);
+
     if (dto.email === EUser.email && dto.password === EUser.password) {
       return {
         data: {
